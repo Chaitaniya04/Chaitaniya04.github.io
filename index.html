@@ -3,254 +3,305 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>body{margin:0}</style>
+<style>html{scroll-behavior:smooth}</style>
 <title>Chaitaniya Salunke Portfolio</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+<meta name="description" content="Supply chain and operations analyst. Real order data, working tools and case studies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap">
 <style>
-:root{--bg:#f6f7f9;--fg:#14202e;--mute:#566474;--card:#ffffff;--line:#d9dee5;--accent:#1d4e89;--bar:#1d4e89;--warn:#c2410c;--head:'Space Grotesk',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif}
-@media (prefers-color-scheme:dark){:root{--bg:#0e141b;--fg:#e8edf3;--mute:#9aa7b6;--card:#16202b;--line:#2a3745;--accent:#7fb2ea;--bar:#7fb2ea;--warn:#fb923c;color-scheme:dark}}
-body{background:var(--bg);color:var(--fg);font-family:var(--body);line-height:1.6;padding-block:2rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-main{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:2.5rem}
-h1,h2,h3{font-family:var(--head);text-wrap:balance;line-height:1.2;margin:0}
-h1{font-size:2.2rem}h2{font-size:1.4rem;margin-bottom:.6rem}h3{font-size:1.05rem;margin-bottom:.4rem}
-p{margin:0 0 .8rem;max-width:65ch}
-.sub{color:var(--mute);font-size:1.05rem}
-.links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;margin-top:.8rem}
-a{color:var(--accent)}
-.label{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:600}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}
-.stat{border-top:2px solid var(--accent);padding-top:.5rem}
-.stat b{font-family:var(--head);font-size:1.8rem;display:block;font-variant-numeric:tabular-nums}
-.stat span{color:var(--mute);font-size:.85rem}
-.chart{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1rem;margin:1rem 0}
-.row{display:grid;grid-template-columns:7.5rem 1fr 3.2rem;align-items:center;gap:.6rem;font-size:.85rem;margin:.35rem 0}
-.row .t{background:var(--line);height:.9rem;border-radius:2px;min-width:0}
-.row .t i{display:block;height:100%;background:var(--bar);border-radius:2px}
-.row .t i.w{background:var(--warn)}
-.row em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}
-.note{font-size:.85rem;color:var(--mute)}
-ul{padding-left:1.2rem;margin:0 0 .8rem}li{margin-bottom:.4rem;max-width:65ch}
-table{border-collapse:collapse;width:100%;font-size:.9rem}
-td,th{text-align:left;padding:.4rem .5rem;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+:root{color-scheme:dark;--ink:#0a1822;--panel:#0f2635;--panel2:#143246;--line:#24475c;--fg:#e8f0f4;--mute:#8da7b5;--blue:#5ab0e0;--amber:#f0a83a;--rust:#e5603b;--green:#43c08f;
+--display:'Bricolage Grotesque','Arial Narrow',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--body:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box}
+body{background:var(--ink);color:var(--fg);font-family:var(--body);line-height:1.65;margin:0;padding-block:0 4rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+background-image:linear-gradient(var(--ink),var(--ink)),repeating-linear-gradient(90deg,transparent 0 79px,rgba(90,176,224,.05) 79px 80px)}
+.wrap{max-width:980px;margin:0 auto}
+a{color:var(--blue)}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.02em}
+p{margin:0 0 .9rem;max-width:66ch}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.top{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:space-between;align-items:center;padding-block:1.4rem;border-bottom:1px solid var(--line)}
+.top b{font-family:var(--display);font-size:1.05rem}
+.top nav{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-family:var(--mono);font-size:.75rem}
+.top nav a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--blue)}
+.hero{padding-block:4rem 3rem}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.6rem);font-weight:800;max-width:18ch}
+.hero h1 em{font-style:normal;color:var(--rust)}
+.lede{font-size:1.15rem;color:#c3d4dd;max-width:58ch;margin-top:1.4rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.btn{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.7rem 1.1rem;border:1px solid var(--blue);color:var(--ink);background:var(--blue);border-radius:2px;font-weight:600}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.journey{background:var(--panel);border:1px solid var(--line);padding:1.4rem;margin-top:3rem}
+.journey .mono{margin-bottom:1rem}
+.jrow{display:grid;grid-template-columns:6.5rem 1fr;gap:1rem;align-items:center;margin:.9rem 0}
+.jrow>span{font-family:var(--mono);font-size:.75rem;color:var(--mute)}
+.jbar{display:flex;height:2.6rem;min-width:0;transform-origin:left;animation:grow 1.1s cubic-bezier(.2,.7,.2,1) both}
+.jbar div{display:flex;align-items:center;padding-inline:.6rem;font-family:var(--mono);font-size:.78rem;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden}
+.h{background:var(--amber)}.t1{background:var(--blue)}.t2{background:var(--rust)}
+.jcap{margin:1.2rem 0 0;font-size:.95rem;color:#c3d4dd}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){.jbar,.row .t i{animation:none}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:2.4rem}
+.stat{padding:1.1rem 1rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat b{display:block;font-family:var(--display);font-size:2.2rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:.4rem;font-size:.82rem;color:var(--mute)}
+section{padding-block:3.5rem 0;border-top:1px solid var(--line);margin-top:3.5rem}
+section>.mono{margin-bottom:.8rem}
+h2{font-size:clamp(1.7rem,4.2vw,2.6rem);font-weight:800;max-width:22ch}
+h3{font-size:1.25rem;font-weight:700;margin:2rem 0 .5rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+@media(max-width:720px){.two{grid-template-columns:1fr}.jrow{grid-template-columns:1fr;gap:.3rem}}
+.panel{background:var(--panel);border:1px solid var(--line);padding:1.1rem;min-width:0}
+.row{display:grid;grid-template-columns:5.6rem 1fr 3.4rem;align-items:center;gap:.7rem;font-size:.82rem;margin:.5rem 0}
+.row span:first-child{font-family:var(--mono);color:var(--mute);font-size:.74rem}
+.row .t{background:var(--panel2);height:.95rem;min-width:0}
+.row .t i{display:block;height:100%;background:var(--blue);transform-origin:left;animation:grow .9s ease both}
+.row .t i.w{background:var(--rust)}.row .t i.a{background:var(--amber)}
+.row em{font-style:normal;text-align:right;font-family:var(--mono);font-size:.78rem}
+.note{font-size:.82rem;color:var(--mute)}
+.recs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.rec{border-top:3px solid var(--amber);background:var(--panel);padding:1rem}
+.rec b{display:block;font-family:var(--display);font-size:1.05rem;margin-bottom:.4rem}
+.rec p{font-size:.9rem;color:#c3d4dd;margin:0}
 .scroll{overflow-x:auto}
-.tool{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1rem;margin:1rem 0}
-.tool label{display:flex;flex-direction:column;gap:.2rem;font-size:.8rem;color:var(--mute);min-width:0}
-.tool input,.tool select{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:.35rem .5rem;width:100%;box-sizing:border-box}
-.tool input:focus,.tool select:focus{outline:2px solid var(--accent)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem}
-.out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-top:1rem}
-.out b{font-family:var(--head);font-size:1.5rem;display:block;font-variant-numeric:tabular-nums}
-.out span{color:var(--mute);font-size:.8rem}
-.tag{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--warn);color:var(--warn);border-radius:3px;padding:.1rem .4rem}
-.tool table input{min-width:4.5rem;padding:.25rem .35rem}
-.r-Strong{color:#15803d;font-weight:600}.r-Watch{color:#b45309;font-weight:600}.r-Act{color:var(--warn);font-weight:600}
-@media (prefers-color-scheme:dark){.r-Strong{color:#4ade80}.r-Watch{color:#fbbf24}}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:500}
+td,th{text-align:left;padding:.55rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+.tl{display:grid;gap:0;border-left:2px solid var(--line);margin-top:1.2rem}
+.tl>div{padding:0 0 1.4rem 1.2rem;position:relative}
+.tl>div::before{content:"";position:absolute;left:-7px;top:.45rem;width:12px;height:12px;background:var(--amber)}
+.tl b{font-family:var(--display);font-size:1.1rem}
+.tl .mono{display:block;margin:.1rem 0 .3rem}
+.tl p{margin:0;font-size:.92rem;color:#c3d4dd}
+.tool{background:var(--panel);border:1px solid var(--line);padding:1.2rem;margin-top:1.4rem}
+.tool h3{margin-top:0}
+.tag{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--amber);color:var(--amber);padding:.12rem .45rem;margin-left:.6rem;vertical-align:middle;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-block:.8rem}
+.tool label{display:flex;flex-direction:column;gap:.25rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);min-width:0}
+.tool input,.tool select{font:inherit;font-family:var(--body);font-size:.92rem;text-transform:none;letter-spacing:0;color:var(--fg);background:var(--ink);border:1px solid var(--line);padding:.45rem .55rem;width:100%;border-radius:2px}
+.tool table input{min-width:4.2rem;padding:.3rem .4rem}
+.out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:1rem}
+.out div{background:var(--panel2);padding:.8rem}
+.out b{font-family:var(--display);font-size:1.9rem;font-weight:800;display:block;line-height:1.05;font-variant-numeric:tabular-nums}
+.out span{font-size:.76rem;color:var(--mute)}
+.r-Strong{color:var(--green);font-weight:600}.r-Watch{color:var(--amber);font-weight:600}.r-Act{color:var(--rust);font-weight:600}
+.range{accent-color:var(--rust);padding:0!important;border:0!important;background:transparent!important}
+.closing{background:var(--panel);border:1px solid var(--line);padding:2rem;margin-top:3.5rem}
+.closing h2{max-width:20ch}
+footer{margin-top:2rem}
 </style>
 </head>
 <body>
-<main>
-<header>
-<p class="label">Supply chain and operations analyst</p>
-<h1>Chaitaniya Salunke</h1>
-<p class="sub">MSc Engineering Projects and Systems Management, Kingston University London. I turn order, stock and delivery data into decisions operations teams can act on. SQL, Python, Power BI and Excel.</p>
-<div class="links"><a href="https://www.linkedin.com/in/chaitaniya-salunke">LinkedIn</a><span>chaitanyasalunke60@gmail.com</span><span>London, UK. Graduate visa to February 2027, eligible for Skilled Worker sponsorship.</span></div>
-</header>
+<div class="wrap">
+<header class="top"><b>Chaitaniya Salunke</b>
+<nav><a href="#work">Work</a><a href="#tools">Tools</a><a href="#experience">Experience</a><a href="https://www.linkedin.com/in/chaitaniya-salunke">LinkedIn</a></nav></header>
 
-<section>
-<p class="label">Project 1</p>
-<h2>Why do 1 in 12 orders arrive late, and where should an operations team act first?</h2>
-<p>I analysed about 99,000 real orders from Olist, a Brazilian marketplace that connects small sellers with customers. The question: where does late delivery come from, and what does it cost in customer satisfaction?</p>
+<div class="hero">
+<p class="mono">Supply chain and operations analyst, London</p>
+<h1>Late orders are not <em>stuck at the seller.</em> They are stuck in transit.</h1>
+<p class="lede">I found that in 94,356 real orders. I turn order, stock and supplier data into decisions operations teams can act on, using SQL, Python, Power BI and Excel. This page shows the work, and lets you test it.</p>
+<div class="cta"><a class="btn" href="#work">See the analysis</a><a class="btn ghost" href="#tools">Try the tools</a></div>
+
+<div class="journey">
+<p class="mono">Median journey of an order after approval, drawn to scale (days)</p>
+<div class="jrow"><span>On time</span><div class="jbar" style="width:32%;min-width:15rem"><div class="h" style="flex:1.7">1.7</div><div class="t1" style="flex:6.9">6.9 in transit</div></div></div>
+<div class="jrow"><span>Late</span><div class="jbar" style="width:100%"><div class="h" style="flex:3.0">3.0</div><div class="t2" style="flex:23.9">23.9 in transit</div></div></div>
+<p class="jcap"><span style="color:var(--amber)">Amber</span> is the seller preparing and handing over the parcel. <span style="color:var(--blue)">Blue</span> and <span style="color:var(--rust)">rust</span> are carrier transit. A late order loses about 1.3 days at the seller and 17 days in transit.</p>
+</div>
+
 <div class="stats">
 <div class="stat"><b>94,356</b><span>delivered orders analysed</span></div>
-<div class="stat"><b>8.1%</b><span>delivered after the promised date</span></div>
+<div class="stat"><b style="color:var(--rust)">8.1%</b><span>arrived after the promised date</span></div>
 <div class="stat"><b>4.29 vs 2.56</b><span>average review, on time vs late</span></div>
-<div class="stat"><b>3.4%</b><span>of sellers cause half of late orders</span></div>
+<div class="stat"><b>3.4%</b><span>of sellers cause half of all late orders</span></div>
+</div>
 </div>
 
-<h3 style="margin-top:1.5rem">Late orders hurt reviews badly</h3>
-<p>Share of orders rated 1 or 2 stars out of 5.</p>
-<div class="chart">
+<section id="work">
+<p class="mono">Case study, real data</p>
+<h2>Where do late deliveries come from, and what do they cost?</h2>
+<p style="margin-top:1rem">I analysed about 99,000 orders from Olist, a Brazilian marketplace that connects small sellers with customers. I joined the order, item, seller and review data in Python (pandas), defined late as arriving after the estimated delivery date, and looked only at delivered orders.</p>
+
+<div class="two">
+<div class="panel">
+<h3 style="margin-top:0">Late orders wreck reviews</h3>
+<p class="note">Share of orders rated 1 or 2 stars</p>
 <div class="row"><span>On time</span><span class="t"><i style="width:9.2%"></i></span><em>9.2%</em></div>
 <div class="row"><span>Late</span><span class="t"><i class="w" style="width:54.3%"></i></span><em>54.3%</em></div>
-</div>
-<p>The longer the delay, the worse the review. Average score by days late against the promised date:</p>
-<div class="chart">
+<p class="note" style="margin-top:1rem">Average score by days late (out of 5)</p>
 <div class="row"><span>On time</span><span class="t"><i style="width:85.9%"></i></span><em>4.29</em></div>
-<div class="row"><span>1 to 3 days</span><span class="t"><i style="width:75.3%"></i></span><em>3.77</em></div>
+<div class="row"><span>1 to 3 days</span><span class="t"><i class="a" style="width:75.3%"></i></span><em>3.77</em></div>
 <div class="row"><span>4 to 7 days</span><span class="t"><i class="w" style="width:46%"></i></span><em>2.30</em></div>
 <div class="row"><span>8 to 14 days</span><span class="t"><i class="w" style="width:34.8%"></i></span><em>1.74</em></div>
 <div class="row"><span>15+ days</span><span class="t"><i class="w" style="width:34.1%"></i></span><em>1.71</em></div>
+<p class="note">One to three days late costs about half a star. Four days or more loses most of the customer.</p>
 </div>
-<p class="note">Bars run from 0 to 5 stars. A delay of one to three days costs about half a star. Four days or more loses most of the customer.</p>
-
-<h3 style="margin-top:1.5rem">Where the delay builds up</h3>
-<p>Median days for each leg of the journey, on time orders against late orders.</p>
+<div class="panel">
+<h3 style="margin-top:0">Where the delay builds</h3>
 <div class="scroll"><table>
-<tr><th>Stage</th><th>On time</th><th>Late</th></tr>
-<tr><td>Approval to handover to carrier (seller)</td><td>1.7</td><td>3.0</td></tr>
-<tr><td>Carrier to customer (transit)</td><td>6.9</td><td>23.9</td></tr>
-<tr><td>Delivery promise given at purchase</td><td>23.3</td><td>22.2</td></tr>
+<tr><th>Stage (median days)</th><th>On time</th><th>Late</th></tr>
+<tr><td>Seller handover after approval</td><td>1.7</td><td>3.0</td></tr>
+<tr><td>Carrier transit to customer</td><td>6.9</td><td>23.9</td></tr>
+<tr><td>Delivery promise at purchase</td><td>23.3</td><td>22.2</td></tr>
 </table></div>
-<p style="margin-top:.8rem">Late orders spend about 24 days in transit, three and a half times the normal 7. Sellers are slower too: half of late orders left the seller more than 3 days after approval. The delivery promise was almost the same for both groups, so the promise itself is not the problem. Transit is.</p>
-
-<h3 style="margin-top:1.5rem">Late rate by customer state</h3>
-<div class="chart">
-<div class="row"><span>MA</span><span class="t"><i class="w" style="width:97%"></i></span><em>19.4%</em></div>
-<div class="row"><span>CE</span><span class="t"><i class="w" style="width:77%"></i></span><em>15.4%</em></div>
-<div class="row"><span>BA</span><span class="t"><i class="w" style="width:70%"></i></span><em>14.0%</em></div>
-<div class="row"><span>RJ</span><span class="t"><i class="w" style="width:66.8%"></i></span><em>13.4%</em></div>
-<div class="row"><span>SP</span><span class="t"><i style="width:29.3%"></i></span><em>5.9%</em></div>
-<div class="row"><span>MG</span><span class="t"><i style="width:28%"></i></span><em>5.6%</em></div>
+<p style="margin-top:1rem;font-size:.92rem;color:#c3d4dd">The promise was almost the same for both groups, so promising too little is not the cause. Transit is. Sellers also run slower on late orders: half of them left the seller more than 3 days after approval.</p>
+<p class="note">Orders crossing state lines were late 9.2% of the time, against 6.0% inside one state.</p>
 </div>
-<p class="note">States with more than 500 delivered orders. Bars scale to 20%. Orders shipped across state lines were late 9.2% of the time, against 6.0% inside one state.</p>
+</div>
 
-<h3 style="margin-top:1.5rem">Late rate by month</h3>
-<div class="chart">
+<div class="two" style="margin-top:1.4rem">
+<div class="panel">
+<h3 style="margin-top:0">Late rate by customer state</h3>
+<div class="row"><span>Maranhao</span><span class="t"><i class="w" style="width:97%"></i></span><em>19.4%</em></div>
+<div class="row"><span>Ceara</span><span class="t"><i class="w" style="width:77%"></i></span><em>15.4%</em></div>
+<div class="row"><span>Bahia</span><span class="t"><i class="w" style="width:70%"></i></span><em>14.0%</em></div>
+<div class="row"><span>Rio</span><span class="t"><i class="w" style="width:66.8%"></i></span><em>13.4%</em></div>
+<div class="row"><span>Sao Paulo</span><span class="t"><i style="width:29.3%"></i></span><em>5.9%</em></div>
+<div class="row"><span>Minas</span><span class="t"><i style="width:28%"></i></span><em>5.6%</em></div>
+<p class="note">States with more than 500 delivered orders. Bars scale to 20%.</p>
+</div>
+<div class="panel">
+<h3 style="margin-top:0">Late rate by month</h3>
 <div class="row"><span>Oct 2017</span><span class="t"><i style="width:26.5%"></i></span><em>5.3%</em></div>
 <div class="row"><span>Nov 2017</span><span class="t"><i class="w" style="width:71%"></i></span><em>14.2%</em></div>
-<div class="row"><span>Dec 2017</span><span class="t"><i style="width:41.8%"></i></span><em>8.4%</em></div>
+<div class="row"><span>Dec 2017</span><span class="t"><i class="a" style="width:41.8%"></i></span><em>8.4%</em></div>
 <div class="row"><span>Jan 2018</span><span class="t"><i style="width:32.6%"></i></span><em>6.5%</em></div>
 <div class="row"><span>Feb 2018</span><span class="t"><i class="w" style="width:79%"></i></span><em>15.8%</em></div>
 <div class="row"><span>Mar 2018</span><span class="t"><i class="w" style="width:100%"></i></span><em>21.3%</em></div>
 <div class="row"><span>Apr 2018</span><span class="t"><i style="width:26.6%"></i></span><em>5.3%</em></div>
+<p class="note">Bars scale to 21.3%. Order volume in Nov 2017 jumped to 7,112 from 4,376 in October, and the late rate nearly tripled.</p>
 </div>
-<p class="note">Bars scale to 21.3%. November 2017 order volume jumped to 7,112 from 4,376 in October, and the late rate nearly tripled.</p>
+</div>
 
-<h3 style="margin-top:1.5rem">Recommendations</h3>
-<ul>
-<li><b>Work with carriers on the slow lanes first.</b> Transit, not seller handling, explains most late orders. Start with Maranhao, Ceara, Bahia and Rio de Janeiro, where late rates are 2 to 3 times Sao Paulo.</li>
-<li><b>Set the promise by lane.</b> One estimate for all routes hides the weak ones. Add a buffer on lanes with a history of lateness so the promise is kept.</li>
-<li><b>Coach the slowest sellers.</b> 101 of 2,948 sellers account for half of all late orders, and 419 account for 80%. A short watch list with a 3 day handover target is a small, focused action.</li>
-<li><b>Plan capacity before peaks.</b> Black Friday 2017 and the early 2018 months show lateness rises when volume or carrier load jumps.</li>
-</ul>
-<h3>Method and limits</h3>
-<p class="note">Data: Olist Brazilian e-commerce public dataset, orders from late 2016 to August 2018, joined at order level in Python (pandas). I counted an order as late when it reached the customer after the estimated delivery date, and only looked at orders with status delivered. Seller concentration partly reflects order volume, so the next step would be to rank sellers by late rate with a minimum order count. I did not have carrier names, so lane level conclusions are by customer state and seller location. This is a public dataset, not data from an employer.</p>
+<h3>What I would do first</h3>
+<div class="recs">
+<div class="rec"><b>Fix the slow lanes</b><p>Transit explains most late orders. Start with Maranhao, Ceara, Bahia and Rio, where late rates run 2 to 3 times Sao Paulo.</p></div>
+<div class="rec"><b>Promise by lane</b><p>One estimate for every route hides the weak ones. Add a buffer on lanes with a history of lateness so the promise holds.</p></div>
+<div class="rec"><b>Coach 101 sellers</b><p>101 of 2,948 sellers cause half of late orders, and 419 cause 80%. A watch list with a 3 day handover target is a small, focused action.</p></div>
+<div class="rec"><b>Plan for peaks</b><p>Black Friday 2017 and early 2018 show lateness rises when volume jumps. Book carrier capacity before the peak.</p></div>
+</div>
+<p class="note" style="margin-top:1.4rem">Limits: a public dataset, not employer data. Seller concentration partly reflects order volume, so the next step is to rank sellers by late rate with a minimum order count. The data has no carrier names, so lane conclusions are by customer state and seller location.</p>
 </section>
 
 <section>
-<p class="label">Project 2</p>
-<h2>How do a retailer and an electronics maker run their supply chains differently, and what should others take from it?</h2>
-<p>My MSc dissertation at Kingston University London (supervisor Dr Andy Lung, September 2024). I built a five criteria model to assess supply chain strategy and applied it to Tesco and Samsung Electronics, using secondary data and a comparative case study method.</p>
-<div class="scroll"><table>
+<p class="mono">Case study, MSc dissertation</p>
+<h2>How do a retailer and an electronics maker run supply chains differently?</h2>
+<p style="margin-top:1rem">My dissertation at Kingston University London (supervisor Dr Andy Lung, September 2024). I built a five criteria model to assess supply chain strategy and applied it to Tesco and Samsung Electronics, using secondary data and a comparative case study method.</p>
+<div class="panel scroll"><table>
 <tr><th>Criterion</th><th>Tesco (retail)</th><th>Samsung (manufacturing)</th></tr>
 <tr><td>Cost efficiency</td><td>Lean logistics, vendor managed inventory</td><td>Lean manufacturing, just in time production</td></tr>
-<tr><td>Responsiveness</td><td>Agile supply chain that follows consumer demand</td><td>Agile manufacturing for fast product launches</td></tr>
-<tr><td>Flexibility</td><td>Flexible sourcing for seasonal demand</td><td>Vertical integration and a diverse supplier network</td></tr>
-<tr><td>Sustainability</td><td>Carbon cuts, waste reduction, sustainable sourcing</td><td>Efficient manufacturing, ethical sourcing, energy efficiency</td></tr>
+<tr><td>Responsiveness</td><td>Agile supply chain that follows demand</td><td>Agile manufacturing for fast launches</td></tr>
+<tr><td>Flexibility</td><td>Flexible sourcing for seasonal demand</td><td>Vertical integration, diverse suppliers</td></tr>
+<tr><td>Sustainability</td><td>Carbon cuts, waste reduction, sustainable sourcing</td><td>Efficient manufacturing, ethical sourcing</td></tr>
 <tr><td>Risk management</td><td>Supplier collaboration, diversification, inventory control</td><td>Advanced technology and monitoring</td></tr>
 </table></div>
-<h3 style="margin-top:1.2rem">What I took from it</h3>
-<ul>
-<li>The same five criteria work in both sectors, but the right mix differs. Retail leans on lean and agile methods, while electronics leans on just in time production and innovation.</li>
-<li>The model carries over to other industries such as automotive, healthcare and agriculture, because every sector must balance cost, speed, flexibility, sustainability and risk.</li>
-<li>Risk planning for the UK food chain covers Brexit delays, labour shortages and climate disruption, with mitigations like supplier diversification, buffer stock and automation.</li>
-</ul>
-<p class="note">Limits: the study is qualitative and built on published sources, with no company internal data or interviews. That is why my portfolio also includes a project on real order data (Project 1).</p>
+<p style="margin-top:1rem">The same five criteria work in both sectors, but the right mix differs. Retail leans on lean and agile methods. Electronics leans on just in time production and innovation. The model carries to other industries because every sector balances cost, speed, flexibility, sustainability and risk.</p>
+<p class="note">Limits: qualitative, built on published sources, with no company internal data or interviews. That is why the order data analysis above exists.</p>
 </section>
 
-<section>
-<p class="label">Tools I built</p>
-<h2>Three working tools for any supply chain team</h2>
-<p>Each one runs in your browser. Change the numbers and the answer updates. The starting figures are examples I made up to show how the tool works. They are not data from any company, and I say so on each tool.</p>
+<section id="tools">
+<p class="mono">Working tools, try them</p>
+<h2>Three tools any supply chain team could use</h2>
+<p style="margin-top:1rem">Change a number and the answer updates. The starting figures in tools 1 and 2 are examples I made up to show how they work. They are not data from any company.</p>
 
 <div class="tool">
-<h3>1. Supplier scorecard <span class="tag">Example data</span></h3>
-<p class="note">Ranks suppliers on on time delivery, quality, lead time reliability and price stability. Weights are adjustable. I am filling the same model with real Oneved supplier data.</p>
-<div class="grid" style="margin-bottom:.8rem">
-<label>Weight: on time %<input id="w1" type="number" value="35" min="0" max="100"></label>
-<label>Weight: quality %<input id="w2" type="number" value="30" min="0" max="100"></label>
-<label>Weight: lead time %<input id="w3" type="number" value="20" min="0" max="100"></label>
-<label>Weight: price %<input id="w4" type="number" value="15" min="0" max="100"></label>
+<h3>Supplier scorecard <span class="tag">Example data</span></h3>
+<p class="note">Ranks suppliers on on time delivery, quality, lead time reliability and price stability. I am filling this same model with real data from the suppliers at Oneved.</p>
+<div class="grid">
+<label>Weight on time %<input id="w1" type="number" value="35" min="0" max="100"></label>
+<label>Weight quality %<input id="w2" type="number" value="30" min="0" max="100"></label>
+<label>Weight lead time %<input id="w3" type="number" value="20" min="0" max="100"></label>
+<label>Weight price %<input id="w4" type="number" value="15" min="0" max="100"></label>
 </div>
 <p id="wmsg" class="note"></p>
-<div class="scroll"><table id="sc">
-<thead><tr><th>Supplier</th><th>Orders</th><th>On time</th><th>Units</th><th>Defects</th><th>Promised days</th><th>Actual days</th><th>Quoted price</th><th>Paid price</th><th>Score</th><th>Rating</th></tr></thead>
-<tbody></tbody></table></div>
-<p class="note">On time score is the on time rate times 100. Quality loses 10 points for every 1% defect rate. Lead time loses 10 points per day late. Price loses 5 points for every 1% over quote. Strong is 85 and above, Watch is 70 to 84, below 70 is Act now.</p>
+<div class="scroll"><table id="sc"><thead><tr><th>Supplier</th><th>Orders</th><th>On time</th><th>Units</th><th>Defects</th><th>Promised days</th><th>Actual days</th><th>Quoted price</th><th>Paid price</th><th>Score</th><th>Rating</th></tr></thead><tbody></tbody></table></div>
+<p class="note">On time score is the on time rate times 100. Quality loses 10 points per 1% defect rate. Lead time loses 10 points per day late. Price loses 5 points per 1% over quote. Strong is 85 and above, Watch is 70 to 84, below 70 is Act now.</p>
 </div>
 
 <div class="tool">
-<h3>2. Safety stock and reorder point <span class="tag">Example data</span></h3>
-<p class="note">Answers "when do I reorder and how much buffer do I hold?" It accounts for both uneven demand and uneven supplier lead times, which simple calculators ignore.</p>
+<h3>Safety stock and reorder point <span class="tag">Example data</span></h3>
+<p class="note">When do I reorder, and how much buffer do I hold? It accounts for uneven demand and uneven supplier lead times, which simple calculators ignore.</p>
 <div class="grid">
-<label>Average daily demand (units)<input id="d" type="number" value="40" min="0"></label>
-<label>Daily demand spread (std dev)<input id="sd" type="number" value="12" min="0"></label>
-<label>Average lead time (days)<input id="lt" type="number" value="14" min="0"></label>
-<label>Lead time spread (std dev, days)<input id="slt" type="number" value="3" min="0"></label>
+<label>Daily demand, units<input id="d" type="number" value="40" min="0"></label>
+<label>Demand spread, std dev<input id="sd" type="number" value="12" min="0"></label>
+<label>Lead time, days<input id="lt" type="number" value="14" min="0"></label>
+<label>Lead time spread, days<input id="slt" type="number" value="3" min="0"></label>
 <label>Service level<select id="sl"><option value="1.28">90%</option><option value="1.645" selected>95%</option><option value="1.88">97%</option><option value="2.33">99%</option></select></label>
 </div>
-<div class="out">
-<div><b id="ss">0</b><span>safety stock (units)</span></div>
-<div><b id="rop">0</b><span>reorder point (units)</span></div>
-<div><b id="ssd">0</b><span>days of cover in the buffer</span></div>
-</div>
-<p class="note">Safety stock = z x square root of (lead time x demand variance + demand squared x lead time variance). Reorder point = average demand x lead time + safety stock. Lowering lead time spread often cuts the buffer more than lowering demand spread, which is why supplier reliability matters.</p>
+<div class="out"><div><b id="ss">0</b><span>safety stock, units</span></div><div><b id="rop">0</b><span>reorder point, units</span></div><div><b id="ssd">0</b><span>days of cover in the buffer</span></div></div>
+<p class="note" style="margin-top:.8rem">Safety stock is z times the square root of (lead time x demand variance + demand squared x lead time variance). Reorder point is average demand x lead time + safety stock. Cutting lead time spread often shrinks the buffer more than cutting demand spread, which is why supplier reliability matters.</p>
 </div>
 
 <div class="tool">
-<h3>3. What is a late delivery worth? <span class="tag">Uses my Olist findings</span></h3>
-<p class="note">From Project 1: orders delivered on time averaged 4.29 stars and late ones 2.56. Move the slider to see the average review for a different late rate. This shows an association in that data, not proof that lateness alone causes the drop.</p>
+<h3>What is a late delivery worth? <span class="tag">Uses the real Olist findings</span></h3>
+<p class="note">Orders delivered on time averaged 4.29 stars and late ones 2.56. Move the slider to see the average review at a different late rate. This is an association in the data, not proof that lateness alone causes the drop.</p>
 <div class="grid">
-<label>Late delivery rate (%)<input id="lr" type="range" min="0" max="25" step="0.5" value="8.1"></label>
+<label>Late delivery rate %<input class="range" id="lr" type="range" min="0" max="25" step="0.5" value="8.1"></label>
 <label>Orders per month<input id="om" type="number" value="10000" min="0"></label>
 </div>
-<div class="out">
-<div><b id="lrv">8.1%</b><span>late rate</span></div>
-<div><b id="avg">0</b><span>expected average review</span></div>
-<div><b id="lo">0</b><span>late orders a month</span></div>
-<div><b id="bad">0</b><span>1 or 2 star reviews a month</span></div>
-</div>
-<p class="note">1 or 2 star share used: 9.2% for on time orders and 54.3% for late orders.</p>
+<div class="out"><div><b id="lrv">8.1%</b><span>late rate</span></div><div><b id="avg">0</b><span>expected average review</span></div><div><b id="lo">0</b><span>late orders a month</span></div><div><b id="bad">0</b><span>1 or 2 star reviews a month</span></div></div>
+<p class="note" style="margin-top:.8rem">Uses 9.2% 1 or 2 star reviews for on time orders and 54.3% for late orders.</p>
 </div>
 </section>
 
-<section>
-<p class="label">Coming next</p>
-<h2>More projects</h2>
-<ul>
-<li><b>Inventory and replenishment analysis.</b> Reorder points and safety stock on a public retail dataset.</li>
-<li><b>Supplier scorecard from Oneved.</b> On time delivery and quality across my 10+ supply partners, with names removed. In progress.</li>
-</ul>
+<section id="experience">
+<p class="mono">Experience</p>
+<h2>Where the skills come from</h2>
+<div class="tl">
+<div><b>Supply and Operations Manager, Oneved</b><span class="mono">May 2026 to present, alongside work</span><p>Built a network of 10+ supply partners by sourcing and coordinating with Indian manufacturers. Run B2C sales on online platforms by coordinating orders and stock across 10+ suppliers.</p></div>
+<div><b>Operations Assistant, Sainsbury's</b><span class="mono">October 2025 to present</span><p>Kept availability accurate across 500+ SKUs using replenishment systems daily to resolve stock discrepancies.</p></div>
+<div><b>Product and Operations Analyst, Join Momentum (part-time internship)</b><span class="mono">January to October 2025</span><p>Cut repeat incidents by 20%. Built 5 Power BI dashboards giving 8 stakeholders weekly visibility. Managed 30 to 50 operational issues a month and wrote SOPs for 4 workflows.</p></div>
+<div><b>MSc Engineering Projects and Systems Management (Merit)</b><span class="mono">Kingston University London, 2023 to 2024</span><p>Dissertation comparing Tesco and Samsung supply chains with a five criteria model.</p></div>
+</div>
 </section>
-</main>
+
+<div class="closing">
+<p class="mono">Open to work</p>
+<h2>Supply chain or operations analyst, UK</h2>
+<p style="margin-top:1rem">I am looking for a supply chain or operations analyst role with a UK sponsor. My Graduate visa runs to February 2027, and I qualify for Skilled Worker sponsorship at the New Entrant rate. Next on this page: a supplier scorecard built on real Oneved data.</p>
+<div class="cta"><a class="btn" href="https://www.linkedin.com/in/chaitaniya-salunke">Message me on LinkedIn</a></div>
+<p class="note" style="margin-top:1rem">chaitanyasalunke60@gmail.com</p>
+</div>
+<footer class="note">Built by Chaitaniya Salunke. The order analysis uses the public Olist Brazilian e-commerce dataset.</footer>
+</div>
 <script>
 (function(){
 var rows=[["S01",120,114,4000,36,7,7,10.00,10.00],["S02",90,70,2500,60,10,14,6.50,6.95],["S03",60,57,1800,27,12,13,22.00,22.40],["S04",150,141,6200,31,5,6,3.20,3.20],["S05",40,28,900,45,9,16,15.00,16.80]];
 var tb=document.querySelector("#sc tbody");
-rows.forEach(function(r,i){var tr=document.createElement("tr");
+rows.forEach(function(r){var tr=document.createElement("tr");
  var h='<td><input type="text" value="'+r[0]+'" style="min-width:3.5rem"></td>';
  for(var k=1;k<9;k++){h+='<td><input type="number" step="any" value="'+r[k]+'"></td>';}
  h+='<td class="sc-s">0</td><td class="sc-r"></td>';tr.innerHTML=h;tb.appendChild(tr);});
 function n(v){return parseFloat(v)||0;}
+function $(i){return document.getElementById(i);}
 function calcSc(){
- var w=[n(w1.value),n(w2.value),n(w3.value),n(w4.value)],t=w[0]+w[1]+w[2]+w[3];
- wmsg.textContent=t===100?"":"Weights add to "+t+"%. They should add to 100%.";
+ var w=[n($("w1").value),n($("w2").value),n($("w3").value),n($("w4").value)],t=w[0]+w[1]+w[2]+w[3];
+ $("wmsg").textContent=t===100?"":"Weights add to "+t+"%. They should add to 100%.";
  tb.querySelectorAll("tr").forEach(function(tr){
   var v=Array.prototype.slice.call(tr.querySelectorAll("input")).map(function(x){return x.value;});
   var o=n(v[1]),ot=n(v[2]),u=n(v[3]),df=n(v[4]),p=n(v[5]),a=n(v[6]),q=n(v[7]),pd=n(v[8]);
-  if(!o||!u||!q){tr.querySelector(".sc-s").textContent="";tr.querySelector(".sc-r").textContent="";return;}
+  var cs=tr.querySelector(".sc-s"),cr=tr.querySelector(".sc-r");
+  if(!o||!u||!q){cs.textContent="";cr.textContent="";return;}
   var s1=Math.min(100,ot/o*100),s2=Math.max(0,100-df/u*1000),s3=Math.max(0,100-Math.max(0,a-p)*10),s4=Math.max(0,100-Math.max(0,(pd-q)/q)*500);
   var sc=(s1*w[0]+s2*w[1]+s3*w[2]+s4*w[3])/(t||1);
   var r=sc>=85?"Strong":sc>=70?"Watch":"Act now";
-  tr.querySelector(".sc-s").textContent=sc.toFixed(0);
-  var c=tr.querySelector(".sc-r");c.textContent=r;c.className="sc-r r-"+(r==="Strong"?"Strong":r==="Watch"?"Watch":"Act");});
+  cs.textContent=sc.toFixed(0);cr.textContent=r;cr.className="sc-r r-"+(r==="Strong"?"Strong":r==="Watch"?"Watch":"Act");});
 }
 document.querySelectorAll("#sc input,#w1,#w2,#w3,#w4").forEach(function(e){e.addEventListener("input",calcSc);});
 calcSc();
 function calcSS(){
- var D=n(d.value),sD=n(sd.value),L=n(lt.value),sL=n(slt.value),z=n(sl.value);
+ var D=n($("d").value),sD=n($("sd").value),L=n($("lt").value),sL=n($("slt").value),z=n($("sl").value);
  var ssv=z*Math.sqrt(L*sD*sD+D*D*sL*sL),rp=D*L+ssv;
- ss.textContent=Math.round(ssv).toLocaleString();rop.textContent=Math.round(rp).toLocaleString();ssd.textContent=D?(ssv/D).toFixed(1):"0";}
-["d","sd","lt","slt","sl"].forEach(function(i){document.getElementById(i).addEventListener("input",calcSS);});calcSS();
+ $("ss").textContent=Math.round(ssv).toLocaleString();$("rop").textContent=Math.round(rp).toLocaleString();$("ssd").textContent=D?(ssv/D).toFixed(1):"0";}
+["d","sd","lt","slt","sl"].forEach(function(i){$(i).addEventListener("input",calcSS);});calcSS();
 function calcLate(){
- var p=n(lr.value)/100,m=n(om.value);
- lrv.textContent=(p*100).toFixed(1)+"%";
- avg.textContent=((1-p)*4.29+p*2.56).toFixed(2);
- lo.textContent=Math.round(m*p).toLocaleString();
- bad.textContent=Math.round(m*((1-p)*0.092+p*0.543)).toLocaleString();}
-["lr","om"].forEach(function(i){document.getElementById(i).addEventListener("input",calcLate);});calcLate();
+ var p=n($("lr").value)/100,m=n($("om").value);
+ $("lrv").textContent=(p*100).toFixed(1)+"%";
+ $("avg").textContent=((1-p)*4.29+p*2.56).toFixed(2);
+ $("lo").textContent=Math.round(m*p).toLocaleString();
+ $("bad").textContent=Math.round(m*((1-p)*0.092+p*0.543)).toLocaleString();}
+["lr","om"].forEach(function(i){$(i).addEventListener("input",calcLate);});calcLate();
 })();
 </script>
-
 </body>
 </html>
