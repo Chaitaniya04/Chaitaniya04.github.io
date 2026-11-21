@@ -33,6 +33,18 @@ ul{padding-left:1.2rem;margin:0 0 .8rem}li{margin-bottom:.4rem;max-width:65ch}
 table{border-collapse:collapse;width:100%;font-size:.9rem}
 td,th{text-align:left;padding:.4rem .5rem;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
 .scroll{overflow-x:auto}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1rem;margin:1rem 0}
+.tool label{display:flex;flex-direction:column;gap:.2rem;font-size:.8rem;color:var(--mute);min-width:0}
+.tool input,.tool select{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:.35rem .5rem;width:100%;box-sizing:border-box}
+.tool input:focus,.tool select:focus{outline:2px solid var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem}
+.out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-top:1rem}
+.out b{font-family:var(--head);font-size:1.5rem;display:block;font-variant-numeric:tabular-nums}
+.out span{color:var(--mute);font-size:.8rem}
+.tag{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--warn);color:var(--warn);border-radius:3px;padding:.1rem .4rem}
+.tool table input{min-width:4.5rem;padding:.25rem .35rem}
+.r-Strong{color:#15803d;font-weight:600}.r-Watch{color:#b45309;font-weight:600}.r-Act{color:var(--warn);font-weight:600}
+@media (prefers-color-scheme:dark){.r-Strong{color:#4ade80}.r-Watch{color:#fbbf24}}
 </style>
 </head>
 <body>
@@ -137,6 +149,62 @@ td,th{text-align:left;padding:.4rem .5rem;border-bottom:1px solid var(--line);fo
 </section>
 
 <section>
+<p class="label">Tools I built</p>
+<h2>Three working tools for any supply chain team</h2>
+<p>Each one runs in your browser. Change the numbers and the answer updates. The starting figures are examples I made up to show how the tool works. They are not data from any company, and I say so on each tool.</p>
+
+<div class="tool">
+<h3>1. Supplier scorecard <span class="tag">Example data</span></h3>
+<p class="note">Ranks suppliers on on time delivery, quality, lead time reliability and price stability. Weights are adjustable. I am filling the same model with real Oneved supplier data.</p>
+<div class="grid" style="margin-bottom:.8rem">
+<label>Weight: on time %<input id="w1" type="number" value="35" min="0" max="100"></label>
+<label>Weight: quality %<input id="w2" type="number" value="30" min="0" max="100"></label>
+<label>Weight: lead time %<input id="w3" type="number" value="20" min="0" max="100"></label>
+<label>Weight: price %<input id="w4" type="number" value="15" min="0" max="100"></label>
+</div>
+<p id="wmsg" class="note"></p>
+<div class="scroll"><table id="sc">
+<thead><tr><th>Supplier</th><th>Orders</th><th>On time</th><th>Units</th><th>Defects</th><th>Promised days</th><th>Actual days</th><th>Quoted price</th><th>Paid price</th><th>Score</th><th>Rating</th></tr></thead>
+<tbody></tbody></table></div>
+<p class="note">On time score is the on time rate times 100. Quality loses 10 points for every 1% defect rate. Lead time loses 10 points per day late. Price loses 5 points for every 1% over quote. Strong is 85 and above, Watch is 70 to 84, below 70 is Act now.</p>
+</div>
+
+<div class="tool">
+<h3>2. Safety stock and reorder point <span class="tag">Example data</span></h3>
+<p class="note">Answers "when do I reorder and how much buffer do I hold?" It accounts for both uneven demand and uneven supplier lead times, which simple calculators ignore.</p>
+<div class="grid">
+<label>Average daily demand (units)<input id="d" type="number" value="40" min="0"></label>
+<label>Daily demand spread (std dev)<input id="sd" type="number" value="12" min="0"></label>
+<label>Average lead time (days)<input id="lt" type="number" value="14" min="0"></label>
+<label>Lead time spread (std dev, days)<input id="slt" type="number" value="3" min="0"></label>
+<label>Service level<select id="sl"><option value="1.28">90%</option><option value="1.645" selected>95%</option><option value="1.88">97%</option><option value="2.33">99%</option></select></label>
+</div>
+<div class="out">
+<div><b id="ss">0</b><span>safety stock (units)</span></div>
+<div><b id="rop">0</b><span>reorder point (units)</span></div>
+<div><b id="ssd">0</b><span>days of cover in the buffer</span></div>
+</div>
+<p class="note">Safety stock = z x square root of (lead time x demand variance + demand squared x lead time variance). Reorder point = average demand x lead time + safety stock. Lowering lead time spread often cuts the buffer more than lowering demand spread, which is why supplier reliability matters.</p>
+</div>
+
+<div class="tool">
+<h3>3. What is a late delivery worth? <span class="tag">Uses my Olist findings</span></h3>
+<p class="note">From Project 1: orders delivered on time averaged 4.29 stars and late ones 2.56. Move the slider to see the average review for a different late rate. This shows an association in that data, not proof that lateness alone causes the drop.</p>
+<div class="grid">
+<label>Late delivery rate (%)<input id="lr" type="range" min="0" max="25" step="0.5" value="8.1"></label>
+<label>Orders per month<input id="om" type="number" value="10000" min="0"></label>
+</div>
+<div class="out">
+<div><b id="lrv">8.1%</b><span>late rate</span></div>
+<div><b id="avg">0</b><span>expected average review</span></div>
+<div><b id="lo">0</b><span>late orders a month</span></div>
+<div><b id="bad">0</b><span>1 or 2 star reviews a month</span></div>
+</div>
+<p class="note">1 or 2 star share used: 9.2% for on time orders and 54.3% for late orders.</p>
+</div>
+</section>
+
+<section>
 <p class="label">Coming next</p>
 <h2>More projects</h2>
 <ul>
@@ -145,5 +213,44 @@ td,th{text-align:left;padding:.4rem .5rem;border-bottom:1px solid var(--line);fo
 </ul>
 </section>
 </main>
+<script>
+(function(){
+var rows=[["S01",120,114,4000,36,7,7,10.00,10.00],["S02",90,70,2500,60,10,14,6.50,6.95],["S03",60,57,1800,27,12,13,22.00,22.40],["S04",150,141,6200,31,5,6,3.20,3.20],["S05",40,28,900,45,9,16,15.00,16.80]];
+var tb=document.querySelector("#sc tbody");
+rows.forEach(function(r,i){var tr=document.createElement("tr");
+ var h='<td><input type="text" value="'+r[0]+'" style="min-width:3.5rem"></td>';
+ for(var k=1;k<9;k++){h+='<td><input type="number" step="any" value="'+r[k]+'"></td>';}
+ h+='<td class="sc-s">0</td><td class="sc-r"></td>';tr.innerHTML=h;tb.appendChild(tr);});
+function n(v){return parseFloat(v)||0;}
+function calcSc(){
+ var w=[n(w1.value),n(w2.value),n(w3.value),n(w4.value)],t=w[0]+w[1]+w[2]+w[3];
+ wmsg.textContent=t===100?"":"Weights add to "+t+"%. They should add to 100%.";
+ tb.querySelectorAll("tr").forEach(function(tr){
+  var v=Array.prototype.slice.call(tr.querySelectorAll("input")).map(function(x){return x.value;});
+  var o=n(v[1]),ot=n(v[2]),u=n(v[3]),df=n(v[4]),p=n(v[5]),a=n(v[6]),q=n(v[7]),pd=n(v[8]);
+  if(!o||!u||!q){tr.querySelector(".sc-s").textContent="";tr.querySelector(".sc-r").textContent="";return;}
+  var s1=Math.min(100,ot/o*100),s2=Math.max(0,100-df/u*1000),s3=Math.max(0,100-Math.max(0,a-p)*10),s4=Math.max(0,100-Math.max(0,(pd-q)/q)*500);
+  var sc=(s1*w[0]+s2*w[1]+s3*w[2]+s4*w[3])/(t||1);
+  var r=sc>=85?"Strong":sc>=70?"Watch":"Act now";
+  tr.querySelector(".sc-s").textContent=sc.toFixed(0);
+  var c=tr.querySelector(".sc-r");c.textContent=r;c.className="sc-r r-"+(r==="Strong"?"Strong":r==="Watch"?"Watch":"Act");});
+}
+document.querySelectorAll("#sc input,#w1,#w2,#w3,#w4").forEach(function(e){e.addEventListener("input",calcSc);});
+calcSc();
+function calcSS(){
+ var D=n(d.value),sD=n(sd.value),L=n(lt.value),sL=n(slt.value),z=n(sl.value);
+ var ssv=z*Math.sqrt(L*sD*sD+D*D*sL*sL),rp=D*L+ssv;
+ ss.textContent=Math.round(ssv).toLocaleString();rop.textContent=Math.round(rp).toLocaleString();ssd.textContent=D?(ssv/D).toFixed(1):"0";}
+["d","sd","lt","slt","sl"].forEach(function(i){document.getElementById(i).addEventListener("input",calcSS);});calcSS();
+function calcLate(){
+ var p=n(lr.value)/100,m=n(om.value);
+ lrv.textContent=(p*100).toFixed(1)+"%";
+ avg.textContent=((1-p)*4.29+p*2.56).toFixed(2);
+ lo.textContent=Math.round(m*p).toLocaleString();
+ bad.textContent=Math.round(m*((1-p)*0.092+p*0.543)).toLocaleString();}
+["lr","om"].forEach(function(i){document.getElementById(i).addEventListener("input",calcLate);});calcLate();
+})();
+</script>
+
 </body>
 </html>
