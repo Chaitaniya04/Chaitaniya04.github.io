@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{margin:0}</style>
+<title>Chaitaniya Salunke Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+:root{--bg:#f6f7f9;--fg:#14202e;--mute:#566474;--card:#ffffff;--line:#d9dee5;--accent:#1d4e89;--bar:#1d4e89;--warn:#c2410c;--head:'Space Grotesk',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#0e141b;--fg:#e8edf3;--mute:#9aa7b6;--card:#16202b;--line:#2a3745;--accent:#7fb2ea;--bar:#7fb2ea;--warn:#fb923c;color-scheme:dark}}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);line-height:1.6;padding-block:2rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:2.5rem}
+h1,h2,h3{font-family:var(--head);text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:2.2rem}h2{font-size:1.4rem;margin-bottom:.6rem}h3{font-size:1.05rem;margin-bottom:.4rem}
+p{margin:0 0 .8rem;max-width:65ch}
+.sub{color:var(--mute);font-size:1.05rem}
+.links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;margin-top:.8rem}
+a{color:var(--accent)}
+.label{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}
+.stat{border-top:2px solid var(--accent);padding-top:.5rem}
+.stat b{font-family:var(--head);font-size:1.8rem;display:block;font-variant-numeric:tabular-nums}
+.stat span{color:var(--mute);font-size:.85rem}
+.chart{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1rem;margin:1rem 0}
+.row{display:grid;grid-template-columns:7.5rem 1fr 3.2rem;align-items:center;gap:.6rem;font-size:.85rem;margin:.35rem 0}
+.row .t{background:var(--line);height:.9rem;border-radius:2px;min-width:0}
+.row .t i{display:block;height:100%;background:var(--bar);border-radius:2px}
+.row .t i.w{background:var(--warn)}
+.row em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--mute)}
+ul{padding-left:1.2rem;margin:0 0 .8rem}li{margin-bottom:.4rem;max-width:65ch}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+td,th{text-align:left;padding:.4rem .5rem;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="label">Supply chain and operations analyst</p>
+<h1>Chaitaniya Salunke</h1>
+<p class="sub">MSc Engineering Projects and Systems Management, Kingston University London. I turn order, stock and delivery data into decisions operations teams can act on. SQL, Python, Power BI and Excel.</p>
+<div class="links"><a href="https://www.linkedin.com/in/chaitaniya-salunke">LinkedIn</a><span>chaitanyasalunke60@gmail.com</span><span>London, UK. Graduate visa to February 2027, eligible for Skilled Worker sponsorship.</span></div>
+</header>
+
+<section>
+<p class="label">Project 1</p>
+<h2>Why do 1 in 12 orders arrive late, and where should an operations team act first?</h2>
+<p>I analysed about 99,000 real orders from Olist, a Brazilian marketplace that connects small sellers with customers. The question: where does late delivery come from, and what does it cost in customer satisfaction?</p>
+<div class="stats">
+<div class="stat"><b>94,356</b><span>delivered orders analysed</span></div>
+<div class="stat"><b>8.1%</b><span>delivered after the promised date</span></div>
+<div class="stat"><b>4.29 vs 2.56</b><span>average review, on time vs late</span></div>
+<div class="stat"><b>3.4%</b><span>of sellers cause half of late orders</span></div>
+</div>
+
+<h3 style="margin-top:1.5rem">Late orders hurt reviews badly</h3>
+<p>Share of orders rated 1 or 2 stars out of 5.</p>
+<div class="chart">
+<div class="row"><span>On time</span><span class="t"><i style="width:9.2%"></i></span><em>9.2%</em></div>
+<div class="row"><span>Late</span><span class="t"><i class="w" style="width:54.3%"></i></span><em>54.3%</em></div>
+</div>
+<p>The longer the delay, the worse the review. Average score by days late against the promised date:</p>
+<div class="chart">
+<div class="row"><span>On time</span><span class="t"><i style="width:85.9%"></i></span><em>4.29</em></div>
+<div class="row"><span>1 to 3 days</span><span class="t"><i style="width:75.3%"></i></span><em>3.77</em></div>
+<div class="row"><span>4 to 7 days</span><span class="t"><i class="w" style="width:46%"></i></span><em>2.30</em></div>
+<div class="row"><span>8 to 14 days</span><span class="t"><i class="w" style="width:34.8%"></i></span><em>1.74</em></div>
+<div class="row"><span>15+ days</span><span class="t"><i class="w" style="width:34.1%"></i></span><em>1.71</em></div>
+</div>
+<p class="note">Bars run from 0 to 5 stars. A delay of one to three days costs about half a star. Four days or more loses most of the customer.</p>
+
+<h3 style="margin-top:1.5rem">Where the delay builds up</h3>
+<p>Median days for each leg of the journey, on time orders against late orders.</p>
+<div class="scroll"><table>
+<tr><th>Stage</th><th>On time</th><th>Late</th></tr>
+<tr><td>Approval to handover to carrier (seller)</td><td>1.7</td><td>3.0</td></tr>
+<tr><td>Carrier to customer (transit)</td><td>6.9</td><td>23.9</td></tr>
+<tr><td>Delivery promise given at purchase</td><td>23.3</td><td>22.2</td></tr>
+</table></div>
+<p style="margin-top:.8rem">Late orders spend about 24 days in transit, three and a half times the normal 7. Sellers are slower too: half of late orders left the seller more than 3 days after approval. The delivery promise was almost the same for both groups, so the promise itself is not the problem. Transit is.</p>
+
+<h3 style="margin-top:1.5rem">Late rate by customer state</h3>
+<div class="chart">
+<div class="row"><span>MA</span><span class="t"><i class="w" style="width:97%"></i></span><em>19.4%</em></div>
+<div class="row"><span>CE</span><span class="t"><i class="w" style="width:77%"></i></span><em>15.4%</em></div>
+<div class="row"><span>BA</span><span class="t"><i class="w" style="width:70%"></i></span><em>14.0%</em></div>
+<div class="row"><span>RJ</span><span class="t"><i class="w" style="width:66.8%"></i></span><em>13.4%</em></div>
+<div class="row"><span>SP</span><span class="t"><i style="width:29.3%"></i></span><em>5.9%</em></div>
+<div class="row"><span>MG</span><span class="t"><i style="width:28%"></i></span><em>5.6%</em></div>
+</div>
+<p class="note">States with more than 500 delivered orders. Bars scale to 20%. Orders shipped across state lines were late 9.2% of the time, against 6.0% inside one state.</p>
+
+<h3 style="margin-top:1.5rem">Late rate by month</h3>
+<div class="chart">
+<div class="row"><span>Oct 2017</span><span class="t"><i style="width:26.5%"></i></span><em>5.3%</em></div>
+<div class="row"><span>Nov 2017</span><span class="t"><i class="w" style="width:71%"></i></span><em>14.2%</em></div>
+<div class="row"><span>Dec 2017</span><span class="t"><i style="width:41.8%"></i></span><em>8.4%</em></div>
+<div class="row"><span>Jan 2018</span><span class="t"><i style="width:32.6%"></i></span><em>6.5%</em></div>
+<div class="row"><span>Feb 2018</span><span class="t"><i class="w" style="width:79%"></i></span><em>15.8%</em></div>
+<div class="row"><span>Mar 2018</span><span class="t"><i class="w" style="width:100%"></i></span><em>21.3%</em></div>
+<div class="row"><span>Apr 2018</span><span class="t"><i style="width:26.6%"></i></span><em>5.3%</em></div>
+</div>
+<p class="note">Bars scale to 21.3%. November 2017 order volume jumped to 7,112 from 4,376 in October, and the late rate nearly tripled.</p>
+
+<h3 style="margin-top:1.5rem">Recommendations</h3>
+<ul>
+<li><b>Work with carriers on the slow lanes first.</b> Transit, not seller handling, explains most late orders. Start with Maranhao, Ceara, Bahia and Rio de Janeiro, where late rates are 2 to 3 times Sao Paulo.</li>
+<li><b>Set the promise by lane.</b> One estimate for all routes hides the weak ones. Add a buffer on lanes with a history of lateness so the promise is kept.</li>
+<li><b>Coach the slowest sellers.</b> 101 of 2,948 sellers account for half of all late orders, and 419 account for 80%. A short watch list with a 3 day handover target is a small, focused action.</li>
+<li><b>Plan capacity before peaks.</b> Black Friday 2017 and the early 2018 months show lateness rises when volume or carrier load jumps.</li>
+</ul>
+<h3>Method and limits</h3>
+<p class="note">Data: Olist Brazilian e-commerce public dataset, orders from late 2016 to August 2018, joined at order level in Python (pandas). I counted an order as late when it reached the customer after the estimated delivery date, and only looked at orders with status delivered. Seller concentration partly reflects order volume, so the next step would be to rank sellers by late rate with a minimum order count. I did not have carrier names, so lane level conclusions are by customer state and seller location. This is a public dataset, not data from an employer.</p>
+</section>
+
+<section>
+<p class="label">Project 2</p>
+<h2>How do a retailer and an electronics maker run their supply chains differently, and what should others take from it?</h2>
+<p>My MSc dissertation at Kingston University London (supervisor Dr Andy Lung, September 2024). I built a five criteria model to assess supply chain strategy and applied it to Tesco and Samsung Electronics, using secondary data and a comparative case study method.</p>
+<div class="scroll"><table>
+<tr><th>Criterion</th><th>Tesco (retail)</th><th>Samsung (manufacturing)</th></tr>
+<tr><td>Cost efficiency</td><td>Lean logistics, vendor managed inventory</td><td>Lean manufacturing, just in time production</td></tr>
+<tr><td>Responsiveness</td><td>Agile supply chain that follows consumer demand</td><td>Agile manufacturing for fast product launches</td></tr>
+<tr><td>Flexibility</td><td>Flexible sourcing for seasonal demand</td><td>Vertical integration and a diverse supplier network</td></tr>
+<tr><td>Sustainability</td><td>Carbon cuts, waste reduction, sustainable sourcing</td><td>Efficient manufacturing, ethical sourcing, energy efficiency</td></tr>
+<tr><td>Risk management</td><td>Supplier collaboration, diversification, inventory control</td><td>Advanced technology and monitoring</td></tr>
+</table></div>
+<h3 style="margin-top:1.2rem">What I took from it</h3>
+<ul>
+<li>The same five criteria work in both sectors, but the right mix differs. Retail leans on lean and agile methods, while electronics leans on just in time production and innovation.</li>
+<li>The model carries over to other industries such as automotive, healthcare and agriculture, because every sector must balance cost, speed, flexibility, sustainability and risk.</li>
+<li>Risk planning for the UK food chain covers Brexit delays, labour shortages and climate disruption, with mitigations like supplier diversification, buffer stock and automation.</li>
+</ul>
+<p class="note">Limits: the study is qualitative and built on published sources, with no company internal data or interviews. That is why my portfolio also includes a project on real order data (Project 1).</p>
+</section>
+
+<section>
+<p class="label">Coming next</p>
+<h2>More projects</h2>
+<ul>
+<li><b>Inventory and replenishment analysis.</b> Reorder points and safety stock on a public retail dataset.</li>
+<li><b>Supplier scorecard from Oneved.</b> On time delivery and quality across my 10+ supply partners, with names removed. In progress.</li>
+</ul>
+</section>
+</main>
+</body>
+</html>
